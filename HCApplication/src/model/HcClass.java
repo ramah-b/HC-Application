@@ -10,7 +10,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="HC_CLASSES")
+@Table(name="HC_CLASSES", schema = "TESTUSERDB")
 @NamedQuery(name="HcClass.findAll", query="SELECT h FROM HcClass h")
 public class HcClass implements Serializable {
 	private static final long serialVersionUID = 1L;

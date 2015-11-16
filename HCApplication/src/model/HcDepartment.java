@@ -10,13 +10,13 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="HC_DEPARTMENTS")
+@Table(name="HC_DEPARTMENTS", schema = "TESTUSERDB")
 @NamedQuery(name="HcDepartment.findAll", query="SELECT h FROM HcDepartment h")
 public class HcDepartment implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HC_DEPARTMENTS_DEPARTMENTID_GENERATOR", sequenceName="DEPARTMENTS_SEQ")
+	@SequenceGenerator(name="HC_DEPARTMENTS_DEPARTMENTID_GENERATOR", sequenceName="DEPARTMENTS_SEQ", allocationSize = 1, initialValue = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HC_DEPARTMENTS_DEPARTMENTID_GENERATOR")
 	@Column(name="DEPARTMENT_ID")
 	private String departmentId;
