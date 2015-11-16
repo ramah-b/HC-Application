@@ -9,12 +9,14 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="HC_GRADES", schema = "TESTUSERDB")
+@Table(name="HC_GRADES")
 @NamedQuery(name="HcGrade.findAll", query="SELECT h FROM HcGrade h")
 public class HcGrade implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@SequenceGenerator(name="HC_GRADES_GRADEID_GENERATOR", sequenceName="HC_GRADES_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HC_GRADES_GRADEID_GENERATOR")
 	@Column(name="GRADE_ID")
 	private String gradeId;
 

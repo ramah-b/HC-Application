@@ -1,7 +1,7 @@
 <%@ include file="header.jsp"%>
 
 <!-- Login Form -->
-			<form action="superServlet?action=login" method="post">
+			<form action="generalServlet?action=login" method="post">
 				<div class="panel panel-default">
 
 					<div class="panel-body">
@@ -23,11 +23,11 @@
 			</form>
 			
 			<!-- Register Form -->
-			<form action="superServlet?action=registerJSP" method="post">
+			<form action="generalServlet?action=signupJSP" method="post">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<label for="exampleInputEmail1">New User?</label></br>
-						<button type="submit" class="btn btn-warning" name="register">Register</button>
+						<button type="submit" class="btn btn-warning" name="register">Sign Up</button>
 					</div>
 				</div>
 			</form>

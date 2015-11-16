@@ -9,14 +9,16 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="HC_EMPLOYEES", schema = "TESTUSERDB")
+@Table(name="HC_EMPLOYEES")
 @NamedQuery(name="HcEmployee.findAll", query="SELECT h FROM HcEmployee h")
 public class HcEmployee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="PERSON_ID")
-	private String personId;
+	@SequenceGenerator(name="HC_EMPLOYEES_EMPLOYEEID_GENERATOR", sequenceName="HC_EMPLOYEES_SEQ1")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HC_EMPLOYEES_EMPLOYEEID_GENERATOR")
+	@Column(name="EMPLOYEE_ID")
+	private String employeeId;
 
 	private String name;
 
@@ -36,12 +38,12 @@ public class HcEmployee implements Serializable {
 	public HcEmployee() {
 	}
 
-	public String getPersonId() {
-		return this.personId;
+	public String getEmployeeId() {
+		return this.employeeId;
 	}
 
-	public void setPersonId(String personId) {
-		this.personId = personId;
+	public void setEmployeeId(String employeeId) {
+		this.employeeId = employeeId;
 	}
 
 	public String getName() {

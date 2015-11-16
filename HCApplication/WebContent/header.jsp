@@ -52,7 +52,7 @@
 					</button>
 					<a class="navbar-brand">Harrison College</a>
 					<c:if test="${not empty person}">
-					<a class="navbar-brand" href="superServlet?action=logout">Logout</a>
+					<a class="navbar-brand" href="generalServlet?action=logout">Logout</a>
 					</c:if>
 
 				</div>

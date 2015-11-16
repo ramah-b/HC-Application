@@ -9,13 +9,13 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="HC_MAJORS", schema = "TESTUSERDB")
+@Table(name="HC_MAJORS")
 @NamedQuery(name="HcMajor.findAll", query="SELECT h FROM HcMajor h")
 public class HcMajor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HC_MAJORS_MAJORID_GENERATOR", sequenceName="MAJORS_SEQ", allocationSize = 1, initialValue = 1)
+	@SequenceGenerator(name="HC_MAJORS_MAJORID_GENERATOR", sequenceName="MAJORS_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HC_MAJORS_MAJORID_GENERATOR")
 	@Column(name="MAJOR_ID")
 	private String majorId;

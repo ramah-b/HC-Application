@@ -11,7 +11,7 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="HC_CLASSROOMS", schema = "TESTUSERDB")
+@Table(name="HC_CLASSROOMS")
 @NamedQuery(name="HcClassroom.findAll", query="SELECT h FROM HcClassroom h")
 public class HcClassroom implements Serializable {
 	private static final long serialVersionUID = 1L;

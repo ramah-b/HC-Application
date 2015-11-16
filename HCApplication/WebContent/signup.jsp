@@ -1,7 +1,7 @@
 <%@ include file="header.jsp"%>
-<form action="superServlet?action=register" method="post">
+<form action="generalServlet?action=signup" method="post">
 	<div class="panel panel-default">
-		<div class="panel panel-heading">Registration Form</div>
+		<div class="panel panel-heading">Sign Up Form</div>
 
 		<div class="panel-body">
 			<div class="form-group">
@@ -28,7 +28,7 @@
 					id="exampleInputemail" placeholder="email">
 			</div>
 
-			<button type="submit" class="btn btn-info">Register</button>
+			<button type="submit" class="btn btn-info">Sign Up</button>
 		</div>
 	</div>
 </form>
