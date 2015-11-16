@@ -10,13 +10,13 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="HC_ROLES")
+@Table(name="HC_ROLES",schema="TESTUSERDB")
 @NamedQuery(name="HcRole.findAll", query="SELECT h FROM HcRole h")
 public class HcRole implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HC_ROLES_ROLEID_GENERATOR", sequenceName="ROLES_SEQ")
+	@SequenceGenerator(name="HC_ROLES_ROLEID_GENERATOR", sequenceName="ROLES_SEQ", allocationSize = 1, initialValue = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HC_ROLES_ROLEID_GENERATOR")
 	@Column(name="ROLE_ID")
 	private String roleId;

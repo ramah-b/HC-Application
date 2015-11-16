@@ -9,13 +9,13 @@ import javax.persistence.*;
  * 
  */
 @Entity
-@Table(name="HC_STUDENTS")
+@Table(name="HC_STUDENTS",schema="TESTUSERDB")
 @NamedQuery(name="HcStudent.findAll", query="SELECT h FROM HcStudent h")
 public class HcStudent implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HC_STUDENTS_STUDENTID_GENERATOR", sequenceName="HC_STUDENTS_SEQ1")
+	@SequenceGenerator(name="HC_STUDENTS_STUDENTID_GENERATOR", sequenceName="HC_STUDENTS_SEQ1", allocationSize = 1, initialValue = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HC_STUDENTS_STUDENTID_GENERATOR")
 	@Column(name="STUDENT_ID")
 	private String studentId;

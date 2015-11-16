@@ -120,6 +120,8 @@ public class generalServlet extends HttpServlet {
 
 		else {
 			session.setAttribute("person", personUser);
+			getServletContext().getRequestDispatcher("/processHomepage").forward(
+					request, response);
 			
 		}
 
