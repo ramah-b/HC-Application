@@ -3,7 +3,7 @@
 		<div class="panel panel-heading">Welcome "ADMIN"</div>
 		<div class="panel-body">
 		<div class="list-group">
-	<a href="#" class="list-group-item">Create, update, list, or disable a course</a>
+	<a href="courseServlet?action=list" class="list-group-item">Create, update, list, or disable a course</a>
 	<a href="#" class="list-group-item">Create, update, list, or disable a classroom</a>
 	<a href="#" class="list-group-item">Create, update, list, or disable a department</a>	
 	<a href="#" class="list-group-item">Create, update, list, or disable a major</a>
