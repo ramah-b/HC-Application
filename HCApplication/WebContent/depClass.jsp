@@ -5,7 +5,7 @@
 		<div class="list-group">
 		
 		
-		<h3>Classes for this Department</h3>
+		<h3>Current Classes for this Department</h3>
 		<table class="table table-hover">
 		
 		<tr>
@@ -17,13 +17,16 @@
 		
 		</tr>
 		<c:forEach var="courses" items="${courses}">
+		<c:forEach var="food" items="${courses.hcClasses}">
 		<tr>
 		<td>${courses.name}</td>
 		<td>${courses.courseNumber}</td>
 		<td>${courses.credits}</td>
-		<td>${courses.hcClasses[i].day}</td>
-		<td>${courses.hcClasses[i].semester}</td>
+		<td>${food.day}</td>
+		<td>${food.semester}</td>
 		</tr>
+		</c:forEach>
+
 		</c:forEach>
 		
 		</table>

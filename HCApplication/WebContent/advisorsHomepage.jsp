@@ -18,7 +18,7 @@
   
   <a href="departmentCoursesServlet" class="list-group-item">VIEW ALL COURSES IN A DEPARTMENT</a>
   <a href="departmentClassServlet" class="list-group-item">VIEW ALL CURRENT CLASSES IN A DEPARTMENT</a>
-  <a href="#" class="list-group-item">VIEW ALL MAJORS IN A DEPARTMENT</a>
+  <a href="DepartmentMajorsServlet" class="list-group-item">VIEW ALL MAJORS IN A DEPARTMENT</a>
 </div>
 		
  
