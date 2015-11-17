@@ -1,5 +1,7 @@
 <%@ include file="header.jsp"%>
 <div class="panel panel-default">
+<c:choose>
+<c:when test="${not empty avail_class}">
 		<div class="panel panel-heading">Choose a Class from the List Below</div>
 		<div class="panel-body">
 <table class= "table">
@@ -37,7 +39,16 @@
 
 </table>
 		
- 
 		</div>
+		</c:when>
+		<c:otherwise>
+		<div class="panel panel-heading">No Enrolled Classes Found.</div>
+		<div class="panel-body">
 		</div>
+		</c:otherwise>
+		</c:choose>
+		
+		</div>
+		
+		<a class="btn btn-warning" href="generalServlet?action=homepage">Back</a>
 <%@ include file="footer.jsp"%>

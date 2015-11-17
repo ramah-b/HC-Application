@@ -66,11 +66,11 @@ public class enrollClass extends HttpServlet {
 						j++;
 					}
 			}
-			request.setAttribute("avail_class", class_array);
-			getServletContext().getRequestDispatcher("/enrollClassForm.jsp").forward(
-					request, response);
-		}
 			
+		}
+		request.setAttribute("avail_class", class_array);
+		getServletContext().getRequestDispatcher("/enrollClassForm.jsp").forward(
+				request, response);
 		
 	}
 

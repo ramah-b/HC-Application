@@ -43,6 +43,8 @@ public class generalServlet extends HttpServlet {
 			processLogin(request, response);
 		else if (action.equals("logout"))
 			processLogout(request, response);
+		else if (action.equals("homepage"))
+			processHomepage(request, response);
 	}
 
 	
