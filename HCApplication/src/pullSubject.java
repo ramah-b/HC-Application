@@ -14,18 +14,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.HcClass;
+import model.HcDepartment;
 
 /**
- * Servlet implementation class AllClassesCurrSem
+ * Servlet implementation class pullSubject
  */
-@WebServlet("/AllClassesCurrSem")
-public class AllClassesCurrSem extends HttpServlet {
+@WebServlet("/pullSubject")
+public class pullSubject extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllClassesCurrSem() {
+    public pullSubject() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -48,44 +49,23 @@ public class AllClassesCurrSem extends HttpServlet {
 	
 	public void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EntityManager em = customTools.DBUtil.getEmFactory().createEntityManager();
-		HttpSession session = request.getSession();
 		
-		Calendar c = Calendar.getInstance();
-		int year = c.get(Calendar.YEAR);
-		int month = (c.get(Calendar.MONTH))+1;
+		String q = "SELECT h FROM HcDepartment h where h.departmentId = :dID and h.existsFlag = 1";
 		
-		String currSemester = "";
+		TypedQuery<HcDepartment> qT = em.createQuery(q, HcDepartment.class);
 		
-		if (month >= 1 && month <= 5){
-			currSemester = "Spring";
-		}
-		else if (month >= 8 && month <= 12){
-			currSemester = "Fall";
-		}
+		qT.setParameter("dID", request.getParameter("dID"));
 		
-		String q = "SELECT h FROM HcClass h where h.existsFlag = 1 and h.semester = :sem and h.year = :yr";
+		HcDepartment dept = null;
 		
-		TypedQuery<HcClass> qT = em.createQuery(q, HcClass.class);
+		dept = qT.getSingleResult();
 		
-		qT.setParameter("sem", currSemester);
-		qT.setParameter("yr", String.valueOf(year));
+		String subject = dept.getName();
 		
-		List<HcClass> Classes = null;
-
-		String tableinfo = "";
-		
-		Classes = qT.getResultList();
-		
-		for(int i=0;i<Classes.size();i++)
-		{
-			tableinfo += "<tr><td>" + Classes.get(i).getCrn()+"</td><td>" + Classes.get(i).getDay()+"</td><td>" + Classes.get(i).getTime()+"</td><td>" + Classes.get(i).getHcPerson().getHcEmployee().getName()+"</td><td>" + Classes.get(i).getHcCours().getName()+"</td><td>" + Classes.get(i).getHcClassroom().getBuildingName()+"</td><td>" + "Rm "+ Classes.get(i).getHcClassroom().getClassroomNumber()+"</td></tr>";
-		}
-		request.setAttribute("tableinfo", tableinfo);
-		session.setAttribute("currSem", currSemester);
-		session.setAttribute("currYear", year);
+		request.setAttribute("subject", subject);
 
 		getServletContext()
-		.getRequestDispatcher("/AllClassesCurrSem.jsp")
+		.getRequestDispatcher("/AllClassesInSubjCurrSem")
 		.forward(request, response);
 	}
 

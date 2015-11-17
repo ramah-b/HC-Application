@@ -16,16 +16,16 @@ import javax.servlet.http.HttpSession;
 import model.HcClass;
 
 /**
- * Servlet implementation class AllClassesCurrSem
+ * Servlet implementation class AllClassesByInstructorCurrSem
  */
-@WebServlet("/AllClassesCurrSem")
-public class AllClassesCurrSem extends HttpServlet {
+@WebServlet("/AllClassesByInstructorCurrSem")
+public class AllClassesByInstructorCurrSem extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AllClassesCurrSem() {
+    public AllClassesByInstructorCurrSem() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -63,12 +63,13 @@ public class AllClassesCurrSem extends HttpServlet {
 			currSemester = "Fall";
 		}
 		
-		String q = "SELECT h FROM HcClass h where h.existsFlag = 1 and h.semester = :sem and h.year = :yr";
+		String q = "SELECT h FROM HcClass h where h.existsFlag = 1 and h.semester = :sem and h.year = :yr and h.hcPerson.hcEmployee.employeeId = :eID";
 		
 		TypedQuery<HcClass> qT = em.createQuery(q, HcClass.class);
 		
 		qT.setParameter("sem", currSemester);
 		qT.setParameter("yr", String.valueOf(year));
+		qT.setParameter("eID", request.getParameter("eID"));
 		
 		List<HcClass> Classes = null;
 
@@ -83,9 +84,10 @@ public class AllClassesCurrSem extends HttpServlet {
 		request.setAttribute("tableinfo", tableinfo);
 		session.setAttribute("currSem", currSemester);
 		session.setAttribute("currYear", year);
+		request.setAttribute("name", request.getAttribute("name"));
 
 		getServletContext()
-		.getRequestDispatcher("/AllClassesCurrSem.jsp")
+		.getRequestDispatcher("/AllClassesByInstructorCurrSem.jsp")
 		.forward(request, response);
 	}
 

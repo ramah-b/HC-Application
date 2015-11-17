@@ -11,7 +11,8 @@
     <title></title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<jsp:include page="header.jsp"/>
   </head>
   <body>
@@ -21,20 +22,22 @@
 <div class="container">
 <div class="panel panel-default">
 <div align="center">
-<h1>Select Subject</h1>
+<h1>Select Time</h1>
 </div>
-  <div class="panel-body">
+  <div class="panel-body" align="center">
 		
-		<table class="table table-striped">
-<thead>
-
-</thead>
-<tbody>
-
-${tableinfo }
-
-</tbody>
-		</table>
+<a href="AllClassesAtTimeCurrSem?time=8am">8:00 am</a><br>
+<a href="AllClassesAtTimeCurrSem?time=9am">9:00 am</a><br>
+<a href="AllClassesAtTimeCurrSem?time=10am">10:00 am</a><br>
+<a href="AllClassesAtTimeCurrSem?time=11am">11:00 am</a><br>
+<a href="AllClassesAtTimeCurrSem?time=12pm">12:00 pm</a><br>
+<a href="AllClassesAtTimeCurrSem?time=1pm">1:00 pm</a><br>
+<a href="AllClassesAtTimeCurrSem?time=2pm">2:00 pm</a><br>
+<a href="AllClassesAtTimeCurrSem?time=3pm">3:00 pm</a><br>
+<a href="AllClassesAtTimeCurrSem?time=4pm">4:00 pm</a><br>
+<a href="AllClassesAtTimeCurrSem?time=5pm">5:00 pm</a><br>
+<a href="AllClassesAtTimeCurrSem?time=6pm">6:00 pm</a><br>
+<a href="AllClassesAtTimeCurrSem?time=7pm">7:00 pm</a><br>
 				 
    </div>
    </div>

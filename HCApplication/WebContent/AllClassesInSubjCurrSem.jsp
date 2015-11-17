@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title></title>
+    <title>Classes</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
@@ -21,13 +21,22 @@
 <div class="container">
 <div class="panel panel-default">
 <div align="center">
-<h1>Select Subject</h1>
+<h1>All ${subject } Classes - ${currSem } ${currYear }</h1>
 </div>
   <div class="panel-body">
 		
 		<table class="table table-striped">
 <thead>
 
+			<tr>
+			    <th>CRN</th>
+				<th>Day</th>
+				<th>Time</th>
+				<th>Instructor</th>
+				<th>Course</th>
+				<th>Building</th>
+				<th>Room</th>
+			</tr>
 </thead>
 <tbody>
 
