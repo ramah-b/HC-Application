@@ -3,9 +3,8 @@
 		<div class="panel panel-heading">Welcome "ADVISOR"</div>
 		<div class="panel-body">
 		<div class="list-group">
-  <a href="#" class="list-group-item">View a Students Transcript</a>
-  <a href="#" class="list-group-item">Enroll a Student in a Class</a>
-  <a href="#" class="list-group-item">Drop a Student From a Class</a>
+  <a href="advisorsViewStudentsJSP.jsp" class="list-group-item">View a Students Transcript, Enroll and Drop Class</a>
+
   
   	<a href="advisorsCourseServlet" class="list-group-item">View all courses</a>  	
   	<a href="AllClassesCurrSem" class="list-group-item">View all classes in current semester</a>
