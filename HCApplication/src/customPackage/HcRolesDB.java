@@ -13,7 +13,7 @@ public class HcRolesDB {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "SELECT h FROM HcRole h where h.roleId = :roleId";
 		TypedQuery<HcRole> q = em.createQuery(qString, HcRole.class);
-		String role_id = "1";
+		String role_id = "4";
 		q.setParameter("roleId", role_id);
 		HcRole defaultRole = null;
 		try {

@@ -3,7 +3,7 @@
 		<div class="panel panel-heading">Welcome "Student"</div>
 		<div class="panel-body">
 		<div class="list-group">
-  <a href="#" class="list-group-item">enroll in a class</a>
+  <a href="enrollClass?action=enrollJSP" class="list-group-item">enroll in a class</a>
   <a href="#" class="list-group-item">drop a class</a>
   <a href="#" class="list-group-item">view their unofficial transcript</a>
   <a href="#" class="list-group-item">buy an official transcript ($5)</a>

@@ -1,6 +1,7 @@
 package customPackage;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import model.HcEmployee;
 import model.HcPerson;
 import model.HcRole;
+import model.HcStudent;
 
 
 
@@ -80,7 +82,17 @@ public class generalServlet extends HttpServlet {
 
 				newPerson = HcPersonsDB.selectPersonByUsername(username);
 
+				HcStudent newStudent = new HcStudent();
+				newStudent.setHcPerson(newPerson);
+				newStudent.setName(username);
+				HcStudentsDB.insert(newStudent);
+				
+				newStudent = HcStudentsDB.selectStudetnByPersonId(newPerson.getPersonId());
+				
 				session.setAttribute("person", newPerson);
+				session.setAttribute("student", newStudent);
+				getServletContext().getRequestDispatcher("/studentHomepage.jsp").forward(
+						request, response);
 
 			} else {
 				String emailError = "Email Already Registered!";
@@ -120,8 +132,7 @@ public class generalServlet extends HttpServlet {
 
 		else {
 			session.setAttribute("person", personUser);
-			getServletContext().getRequestDispatcher("/processHomepage").forward(
-					request, response);
+			processHomepage(request, response);
 			
 		}
 
@@ -133,7 +144,9 @@ public class generalServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		HcPerson person = (HcPerson) session.getAttribute("person");
 		String role_id = person.getHcRole().getRoleId();
+		System.out.println(role_id);
 		String person_id = person.getPersonId();
+		System.out.println(person_id);
 
 		if (role_id.equals("1")){
 			HcEmployee empUser = HcEmployeesDB.selectAnEmployee(person_id);
@@ -156,7 +169,17 @@ public class generalServlet extends HttpServlet {
 					request, response);
 			}
 		}else if (role_id.equals("3")){
-			HcEmployee empUser = HcEmployeesDB.selectAnEmployee(person_id);
+			HcStudent empUser = HcStudentsDB.selectStudetnByPersonId(person_id);
+			if (empUser == null){
+				empUser= null;
+			}else{
+				
+				session.setAttribute("instructor", empUser);
+			getServletContext().getRequestDispatcher("/instructorHomepage.jsp").forward(
+					request, response);
+			}
+		}else if (role_id.equals("4")){
+			HcStudent empUser = HcStudentsDB.selectStudetnByPersonId(person_id);
 			if (empUser == null){
 				empUser= null;
 			}else{
