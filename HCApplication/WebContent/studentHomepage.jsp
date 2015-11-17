@@ -13,8 +13,8 @@
 		  <a href="#" class="list-group-item">view all classes by an instructor in a current semester</a>
 		  <a href="#" class="list-group-item">view all classes at a certain time in the current semester</a>
 		  <a href="viewServlet?action=departments" class="list-group-item">View All Courses in a Department</a>
-		  <a href="#" class="list-group-item">view all current classes in a department</a>
-		  <a href="#" class="list-group-item">view all majors in a department</a>
+		  <a href="departmentClassServlet" class="list-group-item">View All Current Classes in a Department</a>
+		  <a href="DepartmentMajorsServlet" class="list-group-item">View All Majors in a Department</a>
 		</div>
 	<div>
 </div>

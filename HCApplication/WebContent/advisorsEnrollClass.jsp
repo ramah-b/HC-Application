@@ -2,7 +2,7 @@
 <div class="panel panel-default">
 	<c:choose>
 		<c:when test="${not empty avail_class}">
-			<div class="panel panel-heading">Choose a Class from the List
+			<div class="panel panel-heading"><c:out value="${student.name}" /> Choose a Class from the List
 				Below</div>
 			<div class="panel-body">
 				<table class="table">
@@ -20,7 +20,9 @@
 					</thead>
 
 					<tbody>
-						<form action="enrollClass?action=enroll" method="POST">
+						<form action="advisorsViewStudentServlet?action=enroll" method="POST">
+						<input type="hidden" name="student_id"
+								value="<c:out value="${student_id}" />" />
 							<c:forEach var="a_class" items="${avail_class}">
 								<tr>
 									<td><button class="btn" name="crn" value="${a_class.crn }">Enroll</button></td>
@@ -52,5 +54,5 @@
 
 </div>
 
-<a class="btn btn-warning" href="generalServlet?action=homepage">Back</a>
+<a class="btn btn-warning" href="#">Back</a>
 <%@ include file="footer.jsp"%>

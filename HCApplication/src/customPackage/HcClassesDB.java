@@ -28,6 +28,8 @@ public class HcClassesDB {
 		return classes;
 	}
 	
+	
+	
 	public static HcClass getAClassByCRN(String crn){
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "SELECT h FROM HcClass h where h.crn = :crn";

@@ -1,5 +1,7 @@
 package customPackage;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
@@ -41,6 +43,35 @@ public class HcStudentsDB {
 			em.close();
 		}
 		return student;
+	}
+	public static HcStudent selectStudetnByStudentId(String student_id) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcStudent h where h.studentId = :student_id";
+		TypedQuery<HcStudent> q = em.createQuery(qString, HcStudent.class);
+		q.setParameter("student_id", student_id);
+		HcStudent student = null;
+		try {
+			student = q.getSingleResult();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return student;
+	}
+	public static List<HcStudent> selectAllStudetns() {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcStudent h";
+		TypedQuery<HcStudent> q = em.createQuery(qString, HcStudent.class);
+		List<HcStudent> student_list = null;
+		try {
+			student_list = q.getResultList();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return student_list;
 	}
 
 }
