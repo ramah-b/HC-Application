@@ -157,7 +157,7 @@ public class generalServlet extends HttpServlet {
 			}else{
 				
 				session.setAttribute("admin", empUser);
-			getServletContext().getRequestDispatcher("/adminHomepage.jsp").forward(
+			getServletContext().getRequestDispatcher("/adminsHomepage.jsp").forward(
 					request, response);
 			}
 		}else if (role_id.equals("2")){
@@ -167,7 +167,7 @@ public class generalServlet extends HttpServlet {
 			}else{
 				
 				session.setAttribute("advisor", empUser);
-			getServletContext().getRequestDispatcher("/advisorHomepage.jsp").forward(
+			getServletContext().getRequestDispatcher("/advisorsHomepage.jsp").forward(
 					request, response);
 			}
 		}else if (role_id.equals("3")){

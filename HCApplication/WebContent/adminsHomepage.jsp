@@ -1,6 +1,6 @@
 <%@ include file="header.jsp"%>
 <div class="panel panel-default">
-		<div class="panel panel-heading">Welcome "ADMIN"</div>
+		<div class="panel panel-heading">Welcome <c:out value="${empUser.name }" /></div>
 		<div class="panel-body">
 		<div class="list-group">
 	<a href="courseServlet?action=list" class="list-group-item">Create, update, list, or disable a course</a>
