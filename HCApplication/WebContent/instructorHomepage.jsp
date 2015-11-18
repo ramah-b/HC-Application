@@ -3,9 +3,9 @@
 		<div class="panel panel-heading">Welcome "Instructor"</div>
 		<div class="panel-body">
 		<div class="list-group">
-  <a href="#" class="list-group-item">view your classes for the current semester</a>
-  <a href="#" class="list-group-item">get roster of students for past or present semesters</a>
-  <a href="#" class="list-group-item">assign grades</a>
+  <a href="selectSemesterForm.jsp" class="list-group-item">View Your Classes for the Current Semester</a>
+  <a href="studentRelatedServlet?action=roster" class="list-group-item">Get Roster of Students for Past or Present Semesters</a>
+  <a href="studentRelatedServlet?action=grade" class="list-group-item">Assign Grades</a>
   <a href="#" class="list-group-item">view grade sheets from previous semesters</a>
   <a href="advisorsCourseServlet" class="list-group-item">view all courses</a>
   <a href="AllClassesCurrSem" class="list-group-item">view all classes in current semester</a>
