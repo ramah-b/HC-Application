@@ -11,19 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.HcEmployee;
 import model.HcPerson;
+import model.HcStudent;
 
 /**
  * Servlet implementation class advisorsCourseServlet
  */
-@WebServlet("/StudentRoleChangeServlet")
-public class StudentRoleChangeServlet extends HttpServlet {
+@WebServlet("/RoleChangeStudentServlet")
+public class RoleChangeStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public StudentRoleChangeServlet() {
+    public RoleChangeStudentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,7 +35,7 @@ public class StudentRoleChangeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		getPersonList(request,response);
+		getStudentRole(request,response);
 		
 	}
 
@@ -42,34 +44,36 @@ public class StudentRoleChangeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		getPersonList(request,response);
+		getStudentRole(request,response);
 		
 	}
 	
-	protected void getPersonList(HttpServletRequest request,
+	protected void getStudentRole(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 		EntityManager em = customTools.DBUtil.getEmFactory()
 				.createEntityManager();
 		
+		String personId = request.getParameter("personId");
 		
+		String query = "SELECT h FROM HcStudent h where h.hcPerson.personId = :personId "; 
+		TypedQuery<HcStudent> q = em.createQuery(query, HcStudent.class);
 		
-		String query = "SELECT h FROM HcStudent h"; 
-		TypedQuery<HcPerson> q = em.createQuery(query, HcPerson.class);
-		
-	
+		q.setParameter("personId",personId);
 
-		List<HcPerson> pr;
-		pr = q.getResultList();
+		HcStudent pr;
+		pr = q.getSingleResult();
 
 
 
 		request.setAttribute("student", pr);
+		request.setAttribute("personId", personId);
 
 
-		getServletContext().getRequestDispatcher("/StudentList.jsp").forward(request,
+		getServletContext().getRequestDispatcher("/RoleChangeStudent.jsp").forward(request,
 				response);
 	}
 
 }
+
 

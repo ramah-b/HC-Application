@@ -10,15 +10,16 @@
 		
 		<tr>
 		<th>Students</th>
+		<th>Current Role</th>
 		
 		
 		
 		</tr>
-		<c:forEach var="person" items="${person}">
+		<c:forEach var="student" items="${student}">
 		
 		<tr>
-		<td><a href="RoleChangeStudent.jsp?name=${person.name}">${person.name}</a></td>
-		
+		<td><a href="RoleChangeStudentServlet?personId=${student.hcPerson.personId}">${student.name}</a></td>
+		<td>${student.hcPerson.hcRole.description}</td>
 		</tr>
 		</c:forEach>
 		

@@ -82,6 +82,23 @@ public class HcPersonsDB {
 			return person;
 		}
 		
+		public static HcPerson selectPersonByPersonId(String personId) {
+			EntityManager em = DBUtil.getEmFactory().createEntityManager();
+			
+			String qString = "SELECT h FROM HcPerson h where h.personId = :personId";
+			TypedQuery<HcPerson> q = em.createQuery(qString, HcPerson.class);
+			q.setParameter("personId", personId);
+			HcPerson person = null;
+			try {
+				person = q.getSingleResult();
+			}catch (NoResultException e){
+				System.out.println(e);
+			}finally{
+				em.close();
+			}
+			return person;
+		}
+		
 		public static HcPerson selectPersonByEmail(String email){
 			EntityManager em = DBUtil.getEmFactory().createEntityManager();
 			email = email.toLowerCase();

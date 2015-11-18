@@ -26,5 +26,21 @@ public class HcRolesDB {
 		return defaultRole;
 	}
 
+	public static HcRole selectRoleByRoleID(String roleId) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcRole h where h.roleId = :roleId";
+		TypedQuery<HcRole> q = em.createQuery(qString, HcRole.class);
+		
+		q.setParameter("roleId", roleId);
+		HcRole defaultRole = null;
+		try {
+			defaultRole = q.getSingleResult();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return defaultRole;
+	}
 
 }

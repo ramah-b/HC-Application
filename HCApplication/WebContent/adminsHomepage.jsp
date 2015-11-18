@@ -9,7 +9,8 @@
 	<a href="majorServlet?action=list" class="list-group-item">Create, update, list, or disable a major</a>
 	<a href="#" class="list-group-item">Add class to schedule for current or later semester</a>
 	<a href="#" class="list-group-item">Remove class to schedule for current or later semester</a>
-	<a href="#" class="list-group-item">Change a new users type to (student, instructor, advisor, or administrator)</a>
+	<a href="StudentRoleChangeServlet" class="list-group-item">Change a Student's role to (instructor, advisor, or administrator)</a>
+	<a href="EmployeeRoleChangeServlet" class="list-group-item">Change an Employee's role to (Student, instructor, advisor, or administrator)</a>
 	<a href="#" class="list-group-item">Override maximum enrollment hold</a>
 	<a href="advisorsCourseServlet" class="list-group-item">View all courses</a>
 	<a href="#" class="list-group-item">View all classes by an instructor</a>
