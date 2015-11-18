@@ -45,4 +45,38 @@ public class HcClassesDB {
 		}
 		return selected_class;
 	}
+	
+	public static List<HcClass> getAClassByPersonID(String person_id){
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcClass h where h.hcPerson.personId = :person_id";
+		TypedQuery<HcClass> q = em.createQuery(qString, HcClass.class);
+		q.setParameter("person_id", person_id);
+		List<HcClass> selected_classes = null;
+		try {
+			selected_classes = q.getResultList();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return selected_classes;
+	}
+	
+	public static List<HcClass> getClassesByPersonIDinCurrentSemester(String person_id, String year, String semester){
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcClass h where h.hcPerson.personId = :person_id and h.year= :year and h.semester = :semester";
+		TypedQuery<HcClass> q = em.createQuery(qString, HcClass.class);
+		q.setParameter("person_id", person_id);
+		q.setParameter("year", year);
+		q.setParameter("semester", semester);
+		List<HcClass> class_list = null;
+		try {
+			class_list = q.getResultList();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return class_list;
+	}
 }

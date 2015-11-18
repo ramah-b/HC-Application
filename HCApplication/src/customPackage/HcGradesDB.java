@@ -8,6 +8,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import model.HcGrade;
+import model.HcPerson;
 import customTools.DBUtil;
 
 public class HcGradesDB {
@@ -75,6 +76,21 @@ public class HcGradesDB {
 		}
 	}
 
+	public static void update(HcGrade grade) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		trans.begin();
+		try {
+			em.merge(grade);
+			trans.commit();
+		} catch (Exception e) {
+			System.out.println(e);
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
+	
 	public static void delete(HcGrade grade) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
