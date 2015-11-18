@@ -4,9 +4,9 @@
 		<div class="panel-body">
 		<div class="list-group">
 	<a href="courseServlet?action=list" class="list-group-item">Create, update, list, or disable a course</a>
-	<a href="#" class="list-group-item">Create, update, list, or disable a classroom</a>
-	<a href="#" class="list-group-item">Create, update, list, or disable a department</a>	
-	<a href="#" class="list-group-item">Create, update, list, or disable a major</a>
+	<a href="classroomServlet?action=list" class="list-group-item">Create, update, list, or disable a classroom</a>
+	<a href="departmentServlet?action=list" class="list-group-item">Create, update, list, or disable a department</a>	
+	<a href="majorServlet?action=list" class="list-group-item">Create, update, list, or disable a major</a>
 	<a href="#" class="list-group-item">Add class to schedule for current or later semester</a>
 	<a href="#" class="list-group-item">Remove class to schedule for current or later semester</a>
 	<a href="#" class="list-group-item">Change a new users type to (student, instructor, advisor, or administrator)</a>

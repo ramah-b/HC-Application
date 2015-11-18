@@ -7,22 +7,18 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
-
-
-
-
-import model.HcCours;
-import model.HcDepartment;
+import model.HcMajor;
 import customTools.DBUtil;
 
-public class HcDepartmentsDB {
+public class HcMajorsDB {
 	
-	public static void insert(HcDepartment dept) {
+	
+	public static void insert(HcMajor major) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
 		trans.begin();
 		try {
-			em.persist(dept);
+			em.persist(major);
 			trans.commit();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -32,12 +28,12 @@ public class HcDepartmentsDB {
 		}
 	}
 
-	public static void update(HcDepartment dept) {
+	public static void update(HcMajor major) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		EntityTransaction trans = em.getTransaction();
 		trans.begin();
 		try {
-			em.merge(dept);
+			em.merge(major);
 			trans.commit();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -47,38 +43,39 @@ public class HcDepartmentsDB {
 		}
 	}
 	
-	public static List<HcDepartment> getAllDepartments() {
+	public static List<HcMajor> getAllMajors() {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "SELECT h FROM HcDepartment h";
-		TypedQuery<HcDepartment> q = em.createQuery(qString, HcDepartment.class);
-		List<HcDepartment> department_list = null;
+		String qString = "SELECT h FROM HcMajor h";
+		TypedQuery<HcMajor> q = em.createQuery(qString, HcMajor.class);
+		List<HcMajor> major_list = null;
 		try {
-			department_list = q.getResultList();
+			major_list = q.getResultList();
 		} catch (NoResultException e) {
 			System.out.println(e);
 		} finally {
 			em.close();
 		}
-		return department_list;
+		return major_list;
 	}
 	
-	public static HcDepartment getDepartmentByDepartmentID(String department_id) {
+	public static HcMajor getMajorByMajorID(String major_id) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
-		String qString = "SELECT h FROM HcDepartment h where h.departmentId= :department_id";
-		TypedQuery<HcDepartment> q = em.createQuery(qString, HcDepartment.class);
-		q.setParameter("department_id", department_id);
-		HcDepartment department = null;
+		String qString = "SELECT h FROM HcMajor h where h.majorId= :major_id";
+		TypedQuery<HcMajor> q = em.createQuery(qString, HcMajor.class);
+		q.setParameter("major_id", major_id);
+		HcMajor major = null;
 		try {
-			department = q.getSingleResult();
+			major = q.getSingleResult();
 		} catch (NoResultException e) {
 			System.out.println(e);
 		} finally {
 			em.close();
 		}
-		return department;
+		return major;
 	}
-	public static boolean departmentExists(String department_id){
-		HcDepartment dept = getDepartmentByDepartmentID(department_id);
-		return dept != null;
+	public static boolean majorExists(String major_id){
+		HcMajor major = getMajorByMajorID(major_id);
+		return major != null;
 	}
+
 }

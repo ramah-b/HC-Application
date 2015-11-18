@@ -26,7 +26,21 @@ public class HcCoursesDB {
 			em.close();
 		}
 	}
-	
+
+	public static void update(HcCours course) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		trans.begin();
+		try {
+			em.merge(course);
+			trans.commit();
+		} catch (Exception e) {
+			System.out.println(e);
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
 	public static List<HcCours> getAllCourses() {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "SELECT h FROM HcCours h where h.existsFlag = '1'";

@@ -5,6 +5,9 @@
 		<c:when test="${not empty courses}">
 			<div class="panel panel-heading">Courses List</div>
 			<div class="panel-body">
+			<c:if test="${message != null }">
+							<h4 style = "color: #780000"><c:out value="${message}" /></h4>
+						</c:if>
 				<table class="table">
 					<thead>
 						<th>Course Number</th>
@@ -36,16 +39,14 @@
 										<c:when test="${course.existsFlag == 1 }">Yes</c:when>
 										<c:otherwise>No</c:otherwise>
 									</c:choose></td>
-								<td><button class="btn" name="crn"
-										value="${a_class.hcClass.crn }">Change</button></td>
+								<td><button class="btn">Change</button></td>
 								</form>
 								<form action="courseServlet?action=updateJSP" method="POST">
 									<input type="hidden" name="course_number"
 										value="<c:out value="${course.courseNumber}" />" /> <input
 										type="hidden" name="subject_code"
 										value="<c:out value="${course.subjectcode}" />" />
-										<td><button class="btn" name="crn"
-										value="${a_class.hcClass.crn }">Update</button></td>
+										<td><button class="btn">Update</button></td>
 								</form>
 								</form>
 							</tr>

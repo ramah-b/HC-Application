@@ -27,6 +27,8 @@ import customPackage.HcGradesDB;
 @WebServlet("/courseServlet")
 public class courseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static String updateFlag="";
+	private static String createFlag="";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -48,6 +50,10 @@ public class courseServlet extends HttpServlet {
 			processListCoursesJSP(request, response);
 		else if(action.equals("updateJSP"))
 			processUpdateCourseJSP(request, response);
+		else if(action.equals("update"))
+			processUpdateCourse(request, response);
+		else if(action.equals("disable"))
+			processEnableDisable(request, response);
 	}
 
 	
@@ -64,8 +70,16 @@ public class courseServlet extends HttpServlet {
 			courses_list = null;
 		
 		request.setAttribute("courses", courses_list);
-		
-
+		if (updateFlag.equals("yes")){
+			String message = "Course has been updated.";
+			request.setAttribute("message", message);
+			updateFlag="no";
+		}
+		if (createFlag.equals("yes")){
+			String message = "Course has been created.";
+			request.setAttribute("message", message);
+			createFlag="no";
+		}
 		getServletContext().getRequestDispatcher("/adminViewAllCourses.jsp").forward(request,
 				response);
 		
@@ -113,8 +127,8 @@ public class courseServlet extends HttpServlet {
 				new_course.setDescription(description);
 			
 			HcCoursesDB.insert(new_course);
-			getServletContext().getRequestDispatcher("/adminCreateCourseJSP.jsp").forward(
-					request, response);
+			createFlag="yes";
+			processListCoursesJSP(request, response);
 				
 			
 		}else{
@@ -153,5 +167,59 @@ public class courseServlet extends HttpServlet {
 		
 		}
 	
+	private void processUpdateCourse(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String course_number = request.getParameter("course_number");
+		String subject_code = request.getParameter("subject_code");
+		
+		HcCours new_course = new HcCours();
+		new_course.setCourseNumber(course_number);
+		new_course.setSubjectcode(subject_code.toUpperCase());
+		
+		String name = request.getParameter("name");
+		if (name != null)
+			new_course.setName(name);
+		String description = request.getParameter("description");
+		if (description != null)
+			new_course.setDescription(description);
+		
+		String credits = request.getParameter("credits");
+		if (!credits.isEmpty() ){
+			BigDecimal bd = new BigDecimal(Integer.parseInt(credits));
+			new_course.setCredits(bd);
+		}
+		String department_id = request.getParameter("department_id");
+		HcDepartment dept = new HcDepartment();
+		if (department_id != null){
+			dept = HcDepartmentsDB.getDepartmentByDepartmentID(department_id);
+			new_course.setHcDepartment(dept);
+		}
+			
+			HcCoursesDB.update(new_course);
+			updateFlag="yes";
+			processListCoursesJSP(request, response);
+		}
 
+	private void processEnableDisable(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String course_number = request.getParameter("course_number");
+		String subject_code = request.getParameter("subject_code");
+		
+		
+		
+		HcCours course = new HcCours();
+		course = HcCoursesDB.selectCourseByCourseNumebrSubjectCode(course_number, subject_code);
+		System.out.println(course.getExistsFlag());
+		if (course.getExistsFlag().equals("1"))
+			course.setExistsFlag("0");
+		
+		else if (course.getExistsFlag().equals("0"))
+			course.setExistsFlag("1");
+	
+			HcCoursesDB.update(course);
+			
+			processListCoursesJSP(request, response);
+		}
 }

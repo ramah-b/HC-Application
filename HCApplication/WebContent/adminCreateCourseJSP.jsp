@@ -4,11 +4,9 @@
 		<div class="panel panel-heading">Create a New Course</div>
 
 		<div class="panel-body">
-		<c:if test="${message != null }">
-					<h4 style="color: #780000">
-						<c:out value="${message}" />
-					</h4>
-				</c:if>
+				<c:if test="${message != null }">
+							<h4 style = "color: #780000"><c:out value="${message}" /></h4>
+						</c:if>
 			<div class="form-group">
 				<input type="name" class="form-control" name="course_number"
 					id="exampleInputname" placeholder="Course Number" required>
