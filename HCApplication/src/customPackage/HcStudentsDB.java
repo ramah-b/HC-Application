@@ -73,5 +73,19 @@ public class HcStudentsDB {
 		}
 		return student_list;
 	}
+	public static void delete(HcStudent student) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		EntityTransaction trans = em.getTransaction();
+		trans.begin();
+		try {
+			em.remove(em.merge(student));
+			trans.commit();
+		} catch (Exception e) {
+			System.out.println(e);
+			trans.rollback();
+		} finally {
+			em.close();
+		}
+	}
 
 }
