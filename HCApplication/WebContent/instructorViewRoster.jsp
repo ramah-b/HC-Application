@@ -24,10 +24,10 @@
 
 								<tbody>
 									<c:forEach var="student"
-										items="${a_class.hcGrades.hcPerson.hcStudent}">
+										items="${a_class.hcGrades}">
 										<tr>
-											<td>${student.name }</td>
-											<td>${student.major}</td>
+											<td>${student.hcPerson.hcStudent.name }</td>
+											<td>${student.hcPerson.hcStudent.major}</td>
 										</tr>
 									</c:forEach>
 

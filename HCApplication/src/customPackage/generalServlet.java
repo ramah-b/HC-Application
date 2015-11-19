@@ -171,7 +171,7 @@ public class generalServlet extends HttpServlet {
 					request, response);
 			}
 		}else if (role_id.equals("3")){
-			HcStudent empUser = HcStudentsDB.selectStudetnByPersonId(person_id);
+			HcEmployee empUser = HcEmployeesDB.selectAnEmployee(person_id);
 			if (empUser == null){
 				empUser= null;
 			}else{

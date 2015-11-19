@@ -3,12 +3,12 @@
 		<div class="panel panel-heading">Welcome "Instructor"</div>
 		<div class="panel-body">
 		<div class="list-group">
-  <a href="selectSemesterForm.jsp" class="list-group-item">View Your Classes for the Current Semester</a>
-  <a href="studentRelatedServlet?action=roster" class="list-group-item">Get Roster of Students for Past or Present Semesters</a>
+  <a href="viewClassesServlet?action=currentClasses" class="list-group-item">View Your Classes for the Current Semester</a>
+  <a href="selectSemesterForm.jsp" class="list-group-item">Get Roster of Students for Past or Present Semesters</a>
   <a href="studentRelatedServlet?action=grade" class="list-group-item">Assign Grades</a>
-  <a href="selectSemesterFormForGrades.jsp" class="list-group-item">view grade sheets from previous semesters</a>
-  <a href="advisorsCourseServlet" class="list-group-item">view all courses</a>
-  <a href="AllClassesCurrSem" class="list-group-item">view all classes in current semester</a>
+  <a href="selectSemesterFormForGrades.jsp" class="list-group-item">View Grade Sheets From Previous Semesters</a>
+  <a href="advisorsCourseServlet" class="list-group-item">View All Courses</a>
+  <a href="AllClassesCurrSem" class="list-group-item">View All Classes in Current Semester</a>
   <a href="selectSubjectToViewClasses" class="list-group-item">view all classes in a subject in current semester</a>
   <a href="selectInstructorToViewClasses" class="list-group-item">view all classes by an instructor in a current semester</a>
   <a href="selectTimetoViewClasses.jsp" class="list-group-item">view all classes at a certain time in the current semester</a>
