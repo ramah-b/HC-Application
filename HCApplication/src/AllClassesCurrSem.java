@@ -78,7 +78,13 @@ public class AllClassesCurrSem extends HttpServlet {
 		
 		for(int i=0;i<Classes.size();i++)
 		{
-			tableinfo += "<tr><td>" + Classes.get(i).getCrn()+"</td><td>" + Classes.get(i).getDay()+"</td><td>" + Classes.get(i).getTime()+"</td><td>" + Classes.get(i).getHcPerson().getHcEmployee().getName()+"</td><td>" + Classes.get(i).getHcCours().getName()+"</td><td>" + Classes.get(i).getHcClassroom().getBuildingName()+"</td><td>" + "Rm "+ Classes.get(i).getHcClassroom().getClassroomNumber()+"</td></tr>";
+			tableinfo += "<tr><td>" + Classes.get(i).getCrn()+"</td><td>" + 
+		Classes.get(i).getDay()+"</td><td>" + 
+					Classes.get(i).getTime()+"</td><td>" + 
+		Classes.get(i).getHcPerson().getHcEmployee().getName()+"</td><td>" + 
+					Classes.get(i).getHcCours().getName()+"</td><td>" + 
+		Classes.get(i).getHcClassroom().getBuildingName()+"</td><td>" + "Rm "+ 
+					Classes.get(i).getHcClassroom().getClassroomNumber()+"</td></tr>";
 		}
 		request.setAttribute("tableinfo", tableinfo);
 		session.setAttribute("currSem", currSemester);
