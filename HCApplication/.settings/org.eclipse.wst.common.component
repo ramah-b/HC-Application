@@ -2,6 +2,7 @@
     <wb-module deploy-name="HCApplication">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/Unit Tests"/>
         <property name="context-root" value="HCApplication"/>
         <property name="java-output-path" value="/HCApplication/build/classes"/>
     </wb-module>
