@@ -2,7 +2,7 @@
 <div class="container">
 <div class="panel panel-default">
 <div align="center">
-<h1>All Classes by ${name } - ${currSem } ${currYear }</h1>
+<h4>All Classes by ${name } - ${currSem } ${currYear }</h4>
 </div>
   <div class="panel-body">
 		

@@ -5,7 +5,7 @@
 		<div class="list-group">
 		
 		
-		<h3>Courses for this Department</h3>
+		<h4>Courses for this Department</h4>
 		<table class="table table-hover">
 		
 		<tr>

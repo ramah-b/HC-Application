@@ -1,6 +1,6 @@
 <%@ include file="header.jsp"%>
 <div class="panel panel-default">
-		<div class="panel panel-heading">Welcome "Instructor"</div>
+		<div class="panel panel-heading">Welcome <c:out value="${instructor.name }" /></div>
 		<div class="panel-body">
 		<div class="list-group">
   <a href="viewClassesServlet?action=currentClasses" class="list-group-item">View Your Classes for the Current Semester</a>

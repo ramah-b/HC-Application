@@ -5,7 +5,7 @@
 		<div class="list-group">
 		
 		
-		<h3>Click the role you would like to change to</h3>
+		<h4>Click the role you would like to change to</h4>
 		<div class="container">
 		<form action="ModifyEmployee">
 		<input type="hidden" name="personId" value="<c:out value="${personId}" />" />

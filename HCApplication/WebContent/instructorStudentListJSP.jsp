@@ -10,9 +10,10 @@
 			<c:forEach var="a_class" items="${class_list}">
 				<c:choose>
 					<c:when test="${not empty a_class.hcGrades}">
-						<div class="panel panel-heading">Class ${a_class.crn } -
-							${a_class.hcCours.courseNumber}${a_class.hcCours.subjectcode }</div>
-						<div class="panel-body">
+					<div class="panel-body">
+						<h4>Class ${a_class.crn } -
+							${a_class.hcCours.courseNumber}${a_class.hcCours.subjectcode }</h4>
+						
 							<table class="table">
 								<thead>
 									<th>Student Name</th>

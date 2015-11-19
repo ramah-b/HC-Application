@@ -1,6 +1,6 @@
 <%@ include file="header.jsp"%>
 <div class="panel panel-default">
-		<div class="panel panel-heading">Welcome <c:out value="${empUser.name }" /></div>
+		<div class="panel panel-heading">Welcome <c:out value="${admin.name }" /></div>
 		<div class="panel-body">
 		<div class="list-group">
 	<a href="courseServlet?action=list" class="list-group-item">Create, Update, List, or Disable a Course</a>
@@ -12,7 +12,7 @@
 	<a href="StudentRoleChangeServlet" class="list-group-item">Change a Student's Role to (Instructor, Advisor, or Administrator)</a>
 	<a href="EmployeeRoleChangeServlet" class="list-group-item">Change an Employee's role to (Student, Instructor, Advisor, or Administrator)</a>
 	<a href="#" class="list-group-item">Override maximum enrollment hold</a>
-	<a href="advisorsCourseServlet" class="list-group-item">View All Courses</a>
+	<a href="viewServlet?action=courses" class="list-group-item">View All Courses</a>
 	<a href="adminViewServlet?action=listInstructorsClasses" class="list-group-item">View All Classes by an Instructor</a>
 	<a href="adminViewServlet?action=listStudents" class="list-group-item">View All Classes by a Student</a>
 	<a href="adminViewServlet?action=listInstructors" class="list-group-item">View a List of All Students Taught by an Instructor</a>

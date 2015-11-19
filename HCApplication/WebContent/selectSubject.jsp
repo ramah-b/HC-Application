@@ -2,7 +2,7 @@
 <div class="container">
 <div class="panel panel-default">
 <div align="center">
-<h1>Select Subject</h1>
+<h4>Select Subject</h4>
 </div>
   <div class="panel-body">
 		

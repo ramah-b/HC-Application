@@ -40,8 +40,7 @@
 							</table>
 						</div>
 					</c:when>
-					<c:otherwise><p>No Students</p>
-					</c:otherwise>
+					
 				</c:choose>
 			</c:forEach>
 		</c:when>

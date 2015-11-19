@@ -6,7 +6,7 @@
 <div class="container">
 <div class="panel panel-default">
 <div align="center">
-<h1>All Classes - ${currSem } ${currYear } at ${time }</h1>
+<h4>All Classes - ${currSem } ${currYear } at ${time }</h4>
 </div>
   <div class="panel-body">
 		

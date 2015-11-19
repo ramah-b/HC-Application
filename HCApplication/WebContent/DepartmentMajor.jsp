@@ -5,7 +5,7 @@
 		<div class="list-group">
 		
 		
-		<h3>Click The Department You Would Like to See</h3>
+		<h4>Click The Department You Would Like to See</h4>
 		<table class="table table-hover">
 		
 		<tr>

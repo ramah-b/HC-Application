@@ -1,19 +1,19 @@
 <%@ include file="header.jsp"%>
 <div class="panel panel-default">
-		<div class="panel panel-heading">Welcome "ADVISOR"</div>
+		<div class="panel panel-heading">Welcome <c:out value="${advisor.name }" /></div>
 		<div class="panel-body">
 		<div class="list-group">
   <a href="advisorsViewStudentsJSP.jsp" class="list-group-item">View a Students Transcript, Enroll and Drop Class</a>
 
   
-  	<a href="advisorsCourseServlet" class="list-group-item">View all courses</a>  	
-  	<a href="AllClassesCurrSem" class="list-group-item">View all classes in current semester</a>
-	<a href="selectSubjectToViewClasses" class="list-group-item">View all classes in a subject in current semester</a>
-  	<a href="selectInstructorToViewClasses" class="list-group-item">View all classes by an instructor in a current semester</a>
-  	<a href="selectTimetoViewClasses.jsp" class="list-group-item">View all classes at a certain time in the current semester</a>
-  	<a href="departmentCoursesServlet" class="list-group-item">View all courses in a department</a>
-  	<a href="departmentClassServlet" class="list-group-item">View all current classes in a department</a>
-  	<a href="DepartmentMajorsServlet" class="list-group-item">View all majors in a department</a>
+  	<a href="viewServlet?action=courses" class="list-group-item">View All Courses</a>  	
+  	<a href="AllClassesCurrSem" class="list-group-item">View All Classes in Current Semester</a>
+	<a href="selectSubjectToViewClasses" class="list-group-item">View All Classes in a Subject in Current Semester</a>
+  	<a href="selectInstructorToViewClasses" class="list-group-item">View All Classes by an Instructor in a Current Semester</a>
+  	<a href="selectTimetoViewClasses.jsp" class="list-group-item">View All Classes at a Certain Time in the Current Semester</a>
+  	<a href="departmentCoursesServlet" class="list-group-item">View All Courses in a Department</a>
+  	<a href="departmentClassServlet" class="list-group-item">View All Current Classes in a Department</a>
+  	<a href="DepartmentMajorsServlet" class="list-group-item">View All Majors in a Department</a>
 </div>
 		
  
