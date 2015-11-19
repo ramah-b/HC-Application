@@ -4,13 +4,13 @@
 <div class="container">
 <div class="panel panel-default">
 <div align="center">
-<h1>Select Instructor</h1>
+<h4>Select Instructor</h4>
 </div>
   <div class="panel-body">
 		
 		<table class="table table-striped">
 <thead>
-
+<th>Instructor Name</th>
 </thead>
 <tbody>
 

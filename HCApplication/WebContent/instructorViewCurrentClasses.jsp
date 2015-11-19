@@ -29,7 +29,7 @@
 								<td>${a_class.hcCours.name }</td>
 								<td>${a_class.hcCours.description }</td>
 								<td>${a_class.hcCours.credits }</td>
-								<td>${course.hcDepartment.name }</td>
+								<td>${a_class.hcCours.hcDepartment.name }</td>
 								<td>${a_class.hcClassroom.classroomNumber }</td>
 							</tr>
 						</c:forEach>

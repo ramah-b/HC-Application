@@ -17,7 +17,7 @@
 				<input type="name" class="form-control" name="year"
 					id="exampleInputUser1" placeholder="Year" required>
 			</div>
-			<a class="btn btn-warning">Search</a>
+			<button class="btn btn-warning">Search</button>
 		</form>
 	</div>
 </div>
