@@ -17,7 +17,7 @@
 	<a href="#" class="list-group-item">View all classes by a student</a>
 	<a href="#" class="list-group-item">View a list of all students taught by an instructor</a>
 	<a href="#" class="list-group-item">View a list of all instructors that have taught a class</a>
-	<a href="#" class="list-group-item">View a list of all classes that an instructor has taught</a>
+	
 	<a href="#" class="list-group-item">View a list of all classes of a course</a>
 	<a href="#" class="list-group-item">View a list of all classrooms used by a course</a>
 	<a href="#" class="list-group-item">View a list of all classrooms used by an instructor</a>
