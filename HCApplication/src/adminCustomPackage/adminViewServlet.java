@@ -48,6 +48,10 @@ public class adminViewServlet extends HttpServlet {
 			processStudentsListJSP(request, response);
 		else if (action.equals("viewClasses"))
 			processStudentsClassesList(request, response);
+		else if (action.equals("listInstructorsClasses"))
+			processInstructorsListForClassesJSP(request, response);
+		else if (action.equals("viewInstructorClasses"))
+			processInstructorsClassesList(request, response);
 	}
 
 	/**
@@ -88,7 +92,37 @@ public class adminViewServlet extends HttpServlet {
 		
 		
 		}
+	private void processInstructorsListForClassesJSP(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		List<HcEmployee> instructors = HcEmployeesDB.selectInstructors();
 	
+		if (instructors == null || instructors.isEmpty())
+			instructors = null;
+		
+		request.setAttribute("instructors", instructors);
+
+		getServletContext().getRequestDispatcher("/instructorListForClassesJSP.jsp").forward(request,
+				response);
+		
+		
+		}
+	private void processInstructorsClassesList(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String person_id = request.getParameter("person_id");
+		List<HcClass> class_list = HcClassesDB.getAClassByPersonID(person_id);
+	
+		if (class_list == null || class_list.isEmpty())
+			class_list = null;
+		
+		request.setAttribute("class_list", class_list);
+
+		getServletContext().getRequestDispatcher("/adminInstructorClassesJSP.jsp").forward(request,
+				response);
+		
+		
+		}
 	private void processStudentsListJSP(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
