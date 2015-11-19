@@ -15,7 +15,7 @@ public class HcEmployee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@SequenceGenerator(name="HC_EMPLOYEES_EMPLOYEEID_GENERATOR", sequenceName="HC_EMPLOYEES_SEQ", allocationSize = 1, initialValue = 1)
+	@SequenceGenerator(name="HC_EMPLOYEES_EMPLOYEEID_GENERATOR", sequenceName="HC_EMPLOYEES_SEQ1", allocationSize = 1, initialValue = 1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="HC_EMPLOYEES_EMPLOYEEID_GENERATOR")
 	@Column(name="EMPLOYEE_ID")
 	private String employeeId;

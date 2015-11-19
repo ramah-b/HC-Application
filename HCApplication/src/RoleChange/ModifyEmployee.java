@@ -70,10 +70,10 @@ public class ModifyEmployee extends HttpServlet {
 		emp=HcEmployeesDB.selectAnEmployee(pid);
 		HcStudent st = new HcStudent();
 		
-		if(!roid.equals(4)){
+		if(!roid.equals("4")){
 		HcPersonsDB.update(person);
 		}
-		else if(roid.equals(4)){
+		else if(roid.equals("4")){
 				
 			st.setHcPerson(person);
 			st.setName(emp.getName());

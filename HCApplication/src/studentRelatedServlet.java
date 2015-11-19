@@ -44,6 +44,8 @@ public class studentRelatedServlet extends HttpServlet {
 			processAssignGradesJSP(request, response);
 		else if (action.equals("assignGrade"))
 			processAssignGrades(request, response);
+		else if (action.equals("viewGrade"))
+			processViewGrades(request, response);
 			
 	}
 
@@ -112,7 +114,7 @@ public class studentRelatedServlet extends HttpServlet {
 		String person_id = request.getParameter("person_id");
 		String grade = request.getParameter("grade");
 		HcGrade graded_student = HcGradesDB.selectEnrolledClass(crn, person_id);
-		graded_student.setGrade(grade);
+		graded_student.setGrade(grade.toUpperCase());
 
 		HcGradesDB.update(graded_student);
 
@@ -120,6 +122,29 @@ public class studentRelatedServlet extends HttpServlet {
 		
 		
 		}
+	
+	private void processViewGrades(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		HcEmployee instructor = (HcEmployee) session.getAttribute("instructor");
+		String person_id = instructor.getHcPerson().getPersonId();
+		String semester = request.getParameter("semester");
+		String year = request.getParameter("year");
+		
+		List<HcClass> class_list= HcClassesDB.getClassesByPersonIDinCurrentSemester(person_id, year, semester);
+		
+		if (class_list == null || class_list.isEmpty())
+			class_list = null;
+		
+		request.setAttribute("class_list", class_list);
+		request.setAttribute("year", year);
+		request.setAttribute("semester", semester);
+
+		getServletContext().getRequestDispatcher("/instructorViewGrades.jsp").forward(request,
+				response);
+		
+		}
+
 
 
 }

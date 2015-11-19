@@ -1,5 +1,7 @@
 package customPackage;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.NoResultException;
@@ -25,6 +27,22 @@ public class HcEmployeesDB {
 			em.close();
 		}
 		return employee;
+	}
+	public static List<HcEmployee> selectInstructors() {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcEmployee h where h.hcPerson.hcRole.roleId = :roleId";
+		TypedQuery<HcEmployee> q = em.createQuery(qString, HcEmployee.class);
+		String roleId="3";
+		q.setParameter("roleId", roleId);
+		List<HcEmployee> instructors = null;
+		try {
+			instructors = q.getResultList();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return instructors;
 	}
 	
 	public static void insert(HcEmployee emp) {
