@@ -146,9 +146,10 @@ public class generalServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		HcPerson person = (HcPerson) session.getAttribute("person");
 		String role_id = person.getHcRole().getRoleId();
-		System.out.println(role_id);
+		
+		
 		String person_id = person.getPersonId();
-		System.out.println(person_id);
+		
 
 		if (role_id.equals("1")){
 			HcEmployee empUser = HcEmployeesDB.selectAnEmployee(person_id);

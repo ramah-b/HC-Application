@@ -28,6 +28,23 @@ public class HcGradesDB {
 		return enrolledClasses;
 	}
 
+	public static List<HcGrade> getCurrentEnrolledClasses(String person_id, String year, String semester) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcGrade h where h.hcPerson.personId = :person_id and h.hcClass.year= :year and h.hcClass.semester= :semester";
+		TypedQuery<HcGrade> q = em.createQuery(qString, HcGrade.class);
+		q.setParameter("person_id", person_id);
+		q.setParameter("year", year);
+		q.setParameter("semester", semester);
+		List<HcGrade> enrolledClasses = null;
+		try {
+			enrolledClasses = q.getResultList();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return enrolledClasses;
+	}
 	public static List<HcGrade> getEnrolledClassesSorted(String person_id) {
 		EntityManager em = DBUtil.getEmFactory().createEntityManager();
 		String qString = "SELECT h FROM HcGrade h where h.hcPerson.personId = :person_id order by h.hcClass.year";
@@ -104,5 +121,22 @@ public class HcGradesDB {
 		} finally {
 			em.close();
 		}
+	}
+
+	public static long getEnrolledStudents(String crn) {
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "select count(h.hcPerson.personId) from HcGrade h where h.hcClass.crn= :crn";
+		TypedQuery<Long> q = em.createQuery(qString, long.class);
+		q.setParameter("crn", crn);
+		
+		long total=0 ;
+		try {
+			total = q.getSingleResult();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		} finally {
+			em.close();
+		}
+		return total;
 	}
 }

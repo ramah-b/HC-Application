@@ -22,16 +22,15 @@
 								</thead>
 
 								<tbody>
-									<c:forEach var="class"
-										items="${grade.hcClass}">
+									
 										<tr>
-											<td>${class.crn }</td>
-											<td>${class.hcCours.courseNumber}</td>
-											<td>${class.hcCours.subjectCode}</td>
-											<td>${class.semester}</td>
-											<td>${class.year}</td>
+											<td>${grade.hcClass.crn }</td>
+											<td>${grade.hcClass.hcCours.courseNumber}</td>
+											<td>${grade.hcClass.hcCours.subjectcode}</td>
+											<td>${grade.hcClass.semester}</td>
+											<td>${grade.hcClass.year}</td>
 										</tr>
-									</c:forEach>
+									
 
 								</tbody>
 							</table>

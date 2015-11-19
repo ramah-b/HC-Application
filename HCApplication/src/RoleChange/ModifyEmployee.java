@@ -57,7 +57,7 @@ public class ModifyEmployee extends HttpServlet {
 		
 		String pid = request.getParameter("personId");
 		String roid = request.getParameter("roleId");
-		System.out.println("role id " + roid);
+		
 		
 		HcPerson person = new HcPerson();
 		person = HcPersonsDB.selectPersonByPersonId(pid);

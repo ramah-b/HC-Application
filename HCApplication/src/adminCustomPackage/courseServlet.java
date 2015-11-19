@@ -109,7 +109,9 @@ public class courseServlet extends HttpServlet {
 		String course_number = request.getParameter("course_number");
 		String subject_code = request.getParameter("subject_code");
 		String name = request.getParameter("name");
+		System.out.println(name);
 		String description = request.getParameter("description");
+		System.out.println(description);
 		String credits = request.getParameter("credits");
 		String department_id = request.getParameter("department_id");
 		HcDepartment dept = HcDepartmentsDB.getDepartmentByDepartmentID(department_id);
@@ -121,9 +123,9 @@ public class courseServlet extends HttpServlet {
 			new_course.setCredits(bd);
 			new_course.setHcDepartment(dept);
 			new_course.setExistsFlag("1");
-			if (name != null)
+			//if (name != null)
 				new_course.setName(name);
-			if (description != null)
+			//if (description != null)
 				new_course.setDescription(description);
 			
 			HcCoursesDB.insert(new_course);

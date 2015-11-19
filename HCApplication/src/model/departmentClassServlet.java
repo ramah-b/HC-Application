@@ -56,11 +56,6 @@ public class departmentClassServlet extends HttpServlet {
 		List<HcDepartment> dep;
 		dep = q.getResultList();
 
-		for (HcDepartment department : dep) {
-			System.out.println("************************"+ department.getName());
-			
-			
-		}
 
 
 		request.setAttribute("department", dep);

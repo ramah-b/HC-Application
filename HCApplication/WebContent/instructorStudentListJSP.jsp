@@ -2,9 +2,7 @@
 
 <div class="panel panel-default">
 	<div class="panel panel-heading">
-		List of Students for
-		<c:out value="${semester }" />
-		<c:out value="${year }" />
+		List of Students
 	</div>
 	<c:choose>
 		<c:when test="${not empty class_list}">
@@ -24,10 +22,10 @@
 
 								<tbody>
 									<c:forEach var="student"
-										items="${a_class.hcGrades.hcPerson.hcStudent}">
+										items="${a_class.hcGrades}">
 										<tr>
-											<td>${student.name }</td>
-											<td>${student.major}</td>
+											<td>${student.hcPerson.hcStudent.name }</td>
+											<td>${student.hcPerson.hcStudent.major}</td>
 										</tr>
 									</c:forEach>
 
@@ -45,7 +43,7 @@
 		<c:otherwise>
 
 			<div class="panel-body">
-				<p>Classes Found.</p>
+				<p>No Classes Found.</p>
 			</div>
 		</c:otherwise>
 	</c:choose>

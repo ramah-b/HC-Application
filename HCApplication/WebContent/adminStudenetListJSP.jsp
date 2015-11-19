@@ -23,7 +23,7 @@
 								<td>
 								<form action="adminViewServlet?action=viewClasses" method="POST">
 									<input type="hidden" name="person_id"
-										value="<c:out value="${student.personId}" />" /> 
+										value="<c:out value="${student.hcPerson.personId}" />" /> 
 								<button class="btn">View</button>
 								</form>
 								</td>

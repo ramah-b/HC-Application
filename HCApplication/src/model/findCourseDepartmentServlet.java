@@ -59,11 +59,6 @@ public class findCourseDepartmentServlet extends HttpServlet {
 		List<HcCours> cour;
 		cour = q.getResultList();
 
-		for (HcCours course : cour) {
-			System.out.println("************************"+ course.getName());
-			
-			
-		}
 
 
 		request.setAttribute("course", cour);

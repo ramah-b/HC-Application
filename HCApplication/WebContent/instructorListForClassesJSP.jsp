@@ -12,7 +12,7 @@
 					<thead>
 						<th>Name</th>
 						<th>Department Name</th>
-						<th>View Students</th>
+						<th>View Classes</th>
 					</thead>
 
 					<tbody>
@@ -21,9 +21,9 @@
 								<td>${instructor.name}</td>
 								<td>${instructor.hcDepartment.name }</td>
 								<td>
-								<form action="adminViewServlet?action=viewStudents" method="POST">
+								<form action="adminViewServlet?action=viewInstructorClasses" method="POST">
 									<input type="hidden" name="person_id"
-										value="<c:out value="${instructor.personId}" />" /> 
+										value="<c:out value="${instructor.hcPerson.personId}" />" /> 
 								<button class="btn">View</button>
 								</form>
 								</td>

@@ -56,12 +56,7 @@ public class advisorsCourseServlet extends HttpServlet {
 		List<HcCours> cour;
 		cour = q.getResultList();
 
-		for (HcCours course : cour) {
-			System.out.println("************************"+ course.getName());
-			System.out.println("************************"+ course.getDescription());
-			
-		}
-
+		
 
 		request.setAttribute("course", cour);
 

@@ -2,6 +2,7 @@ package customPackage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -54,8 +55,24 @@ public class dropClass extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		HcStudent student = (HcStudent) session.getAttribute("student");
-		List<HcGrade> grade_list = HcGradesDB.getEnrolledClasses(student
-				.getHcPerson().getPersonId());
+		
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		int month = (c.get(Calendar.MONTH))+1;
+		
+		String currSemester = "";
+		
+		if (month >= 1 && month <= 5){
+			currSemester = "Spring";
+		}
+		else if (month >= 8 && month <= 12){
+			currSemester = "Fall";
+		}
+		
+		
+		
+		List<HcGrade> grade_list = HcGradesDB.getCurrentEnrolledClasses(student
+				.getHcPerson().getPersonId(), Integer.toString(year), currSemester);
 		ArrayList<HcGrade> grade_array = new ArrayList<HcGrade>();
 		if (grade_list == null || grade_list.isEmpty())
 			grade_array = null;

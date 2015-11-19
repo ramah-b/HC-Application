@@ -1,7 +1,9 @@
 package customPackage;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.HcClass;
+import model.HcClassroom;
 import model.HcGrade;
 import model.HcStudent;
 
@@ -54,13 +57,31 @@ public class enrollClass extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		HcStudent student = (HcStudent) session.getAttribute("student");
-		List<HcClass> class_list =  HcClassesDB.getActiveClasses();
+		
+		Calendar c = Calendar.getInstance();
+		int year = c.get(Calendar.YEAR);
+		int month = (c.get(Calendar.MONTH))+1;
+		
+		String currSemester = "";
+		
+		if (month >= 1 && month <= 5){
+			currSemester = "Spring";
+		}
+		else if (month >= 8 && month <= 12){
+			currSemester = "Fall";
+		}
+		
+		List<HcClass> class_list =  HcClassesDB.getCurrentActiveClasses(Integer.toString(year), currSemester);
 		ArrayList<HcClass> class_array = new ArrayList<HcClass>();
 		if (class_list == null || class_list.isEmpty())
 			class_array = null;
 		else{
 			int j=0;
 			for (int i=0; i<class_list.size(); i++){
+				long num_of_students = HcGradesDB.getEnrolledStudents(class_list.get(i).getCrn());
+				
+				BigDecimal bd = new BigDecimal(num_of_students);
+				if (class_list.get(i).getHcClassroom().getMaxCapacity().compareTo(bd) == 1 )
 					if (HcGradesDB.selectEnrolledClass(class_list.get(i).getCrn(), student.getHcPerson().getPersonId()) == null){
 						class_array.add(j, class_list.get(i));
 						j++;

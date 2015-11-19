@@ -27,7 +27,24 @@ public class HcClassesDB {
 		}
 		return classes;
 	}
-	
+	public static List<HcClass> getCurrentActiveClasses(String year, String semester){
+		EntityManager em = DBUtil.getEmFactory().createEntityManager();
+		String qString = "SELECT h FROM HcClass h where h.existsFlag = :exists and h.year= :year and h.semester= :semester";
+		String exists = "1";
+		TypedQuery<HcClass> q = em.createQuery(qString, HcClass.class);
+		q.setParameter("exists", exists);
+		q.setParameter("year", year);
+		q.setParameter("semester", semester);
+		List<HcClass> classes = null;
+		try {
+			classes = q.getResultList();
+		}catch (NoResultException e){
+			System.out.println(e);
+		}finally{
+			em.close();
+		}
+		return classes;
+	}
 	
 	
 	public static HcClass getAClassByCRN(String crn){

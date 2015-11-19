@@ -1,5 +1,6 @@
 package customPackage;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -79,4 +80,5 @@ public class HcClassroomsDB {
 		HcClassroom classroom = selectAClassroom(classroom_number, bldg_name);
 		return classroom != null;
 	}
+
 }
