@@ -75,7 +75,7 @@ public class generalServlet extends HttpServlet {
 		if (!HcPersonsDB.usernameExists(username)) {
 			if (!HcPersonsDB.emailExists(email)) {
 
-				newPerson.setUsername(username);
+				newPerson.setUsername(username.toLowerCase());
 				newPerson.setPassword(password);
 				newPerson.setEmail(email);
 				newPerson.setHcRole(defaultRole);
@@ -86,7 +86,7 @@ public class generalServlet extends HttpServlet {
 
 				HcStudent newStudent = new HcStudent();
 				newStudent.setHcPerson(newPerson);
-				newStudent.setName(username);
+				newStudent.setName(username.toLowerCase());
 				HcStudentsDB.insert(newStudent);
 				
 				newStudent = HcStudentsDB.selectStudetnByPersonId(newPerson.getPersonId());
