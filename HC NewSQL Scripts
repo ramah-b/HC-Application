@@ -1,6 +1,16 @@
 --------------------------------------------------------
 --  File created - Thursday-November-19-2015   
 --------------------------------------------------------
+DROP TABLE "TESTUSERDB"."HC_CLASSES" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_CLASSROOMS" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_COURSES" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_DEPARTMENTS" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_EMPLOYEES" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_GRADES" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_MAJORS" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_PERSONS" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_ROLES" cascade constraints;
+DROP TABLE "TESTUSERDB"."HC_STUDENTS" cascade constraints;
 --------------------------------------------------------
 --  DDL for Table HC_CLASSES
 --------------------------------------------------------
