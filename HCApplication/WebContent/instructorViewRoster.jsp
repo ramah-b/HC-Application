@@ -14,7 +14,7 @@
 					<c:when test="${not empty a_class.hcGrades}">
 					<div class="panel-body">
 						<h4>Class ${a_class.crn } -
-							${a_class.hcCours.courseNumber}$ {a_class.hcCours.subjectcode }</h4>
+							${a_class.hcCours.courseNumber} ${a_class.hcCours.subjectcode }</h4>
 						
 							<table class="table">
 								<thead>

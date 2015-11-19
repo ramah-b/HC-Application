@@ -5,10 +5,11 @@
 	<c:choose>
 		<c:when test="${not empty class_list}">
 			<c:forEach var="a_class" items="${class_list}">
-				<div class="panel panel-heading">Class ${a_class.crn } - ${a_class.hcCours.courseNumber} ${a_class.hcCours.subjectcode }</div>
+			<div class="panel-body">
+				<h4>Class ${a_class.crn } - ${a_class.hcCours.courseNumber} ${a_class.hcCours.subjectcode }</h4>
 				<c:choose>
 					<c:when test="${not empty a_class.hcGrades}">
-						<div class="panel-body">
+						
 							<table class="table">
 								<thead>
 									<th>Student Name</th>
@@ -27,7 +28,16 @@
 												<input type="hidden" name="crn" value="${a_class.crn}" />
 												<td>
 												<div class="form-group">
-												<input type="name" class="form-control" name="grade" id="exampleInputUser1" placeholder="Grade" required>
+												<select class="form-control" name="grade" required>
+									<option value="">Select</option>
+									
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
+									<option value="D">D</option>
+									<option value="F">F</option>
+								</select>
+												
 												
 												<button type="submit" class="btn">Grade!</button>
 												</div>
@@ -38,10 +48,12 @@
 									</c:forEach>
 								</tbody>
 							</table>
-						</div>
+						
 					</c:when>
+					<c:otherwise><p>No Students </p></c:otherwise>
 					
 				</c:choose>
+				</div>
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
