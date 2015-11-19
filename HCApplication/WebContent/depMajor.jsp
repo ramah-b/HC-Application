@@ -28,4 +28,5 @@
  
 		</div>
 		</div>
+		<a href="generalServlet?action=homepage" class="btn btn-warning">BACK TO HOMEPAGE</a>
 <%@ include file="footer.jsp"%>
