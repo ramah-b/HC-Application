@@ -21,7 +21,7 @@
 		
 		</table>
 		
-		
+		<a href="generalServlet?action=homepage" class="btn btn-warning">BACK TO HOMEPAGE</a>
 		
   
 </div>
